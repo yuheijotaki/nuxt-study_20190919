@@ -1,17 +1,28 @@
 <template>
   <section class="container">
     <div>
-      <h1>usersのindexページです。</h1>
-      <p>count={{count}}</p>
+      <app-logo/>
+      <h2>users page</h2>
+      <p>count: {{count}}</p>
       <button @click="addCount">カウントアップ</button>
+      <p><NuxtLink :to="'/'">
+        > home
+      </NuxtLink></p>
     </div>
   </section>
 </template>
 
 <script>
+import AppLogo from '~/components/AppLogo.vue'
+
 export default {
+  components: {
+    AppLogo
+  },
   computed: {
-    count () { return this.$store.state.counter.count }
+    count () {
+      return this.$store.state.counter.count
+    }
   },
   methods: {
     addCount (e) {
@@ -22,4 +33,7 @@ export default {
 </script>
 
 <style>
+.container {
+  text-align: center;
+}
 </style>
